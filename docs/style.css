@@ -1,0 +1,51 @@
+header {
+    padding: 1.5em 0 1.5em 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#inputContainer {
+    padding: 1.5em 0 0 0;
+}
+
+.navbar {
+    background-color: rgb(255, 255, 255);
+}
+
+.container-fluid {
+    width: 80%;
+}
+
+
+#dataContainer h2 {
+    padding: 1.5em 0 1.5em 0;
+}
+
+#section {
+    display: none;
+}
+
+
+input[type=text],
+input[type=email],
+input[type=password] {
+    height: 40px;
+    color: #aaa;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    height: 40px;
+}
+
+img {
+    width: 100%;
+}
+
+.rowContainer {
+    padding: 1.5em 0 1.5em 0;
+}
