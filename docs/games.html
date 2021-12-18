@@ -48,6 +48,26 @@
         <div class="container-fluid" id="dataContainer">
             <div class="d-flex justify-content-center">
                 <h2>Search for a game!</h2>
+                <div class="rowContainer">
+                    <div class="row">
+                        <div class="col" id="gameName">
+                            <h1 id="gameName">${element.name}</h1>
+                        </div>
+                        <div class="col">
+                            <form id="addGame">         
+                                <button type="submit" onclick="addScore();">Add Score</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">    
+                            <img src="${element.image_url}" alt="">
+                        </div>  
+                        <div class="col">       
+                            <p id="gameDesc">Description: ${element.description}</p>
+                        </div>
+                    </div>
+                </div>      
             </div>
         </div>
 
