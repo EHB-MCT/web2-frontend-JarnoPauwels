@@ -14,3 +14,5 @@ https://www.youtube.com/c/MikeDerycke
 https://www.w3schools.com/html/
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 
+Webpack (doesn't work):
+https://github.com/EHB-MCT/web2-frontend-RhysDevalckeneer/blob/main/webpack.config.js
