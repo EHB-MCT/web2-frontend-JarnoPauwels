@@ -2,17 +2,65 @@ header {
     padding: 1.5em 0 1.5em 0;
 }
 
+.nav-item {
+    font-size: 2em;
+    padding-left: 0.5em;
+}
+
+nav {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+}
+
 body {
     margin: 0;
     padding: 0;
 }
 
-#inputContainer {
-    padding: 1.5em 0 0 0;
+.section-index {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
+#inputContainer {
+    padding: 1.5em 0 2em 0;
+}
+
+/* Buttons */
+
+.btn.btn-primary.custom-btn-del {
+    font-weight: 600;
+    color: black;
+    background-color: red;
+    border-color: black;
+    border-radius: 12px;
+}
+
+.btn.btn-primary.custom-btn {
+    font-weight: 600;
+    color: black;
+    background-color: #F6E3BA;
+    border-color: black;
+    border-radius: 12px;
+}
+
+.rowContainer.custom-rc {
+    border-radius: 25px;
+    padding: 2em 2em 0.5em 2em;
+    margin-bottom: 1.5em;
+    border: 3px solid rgba(0, 0, 0, .3);
+}
+
+/* Nav */
 .navbar {
     background-color: rgb(255, 255, 255);
+}
+
+#navLogo {
+    width: 50%;
+    height: 50%;
 }
 
 .container-fluid {
@@ -23,11 +71,6 @@ body {
 #dataContainer h2 {
     padding: 1.5em 0 1.5em 0;
 }
-
-#section {
-    display: none;
-}
-
 
 input[type=text],
 input[type=email],
@@ -44,8 +87,4 @@ input[type=submit] {
 
 img {
     width: 100%;
-}
-
-.rowContainer {
-    padding: 1.5em 0 1.5em 0;
 }
