@@ -1,10 +1,8 @@
 window.onload = function(){
-    document.getElementById('scoreContainer').innerHTML = "";
-    document.getElementById('scoreContainer').style.display = "block";
-
         fetch(`https://web2-courseproject-jarno.herokuapp.com/coursedata`, {
             method: "GET",
             headers: {
+                'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json',
             },
 
@@ -15,14 +13,14 @@ window.onload = function(){
             var array = data;
             console.log(array);
     
-            let htmlString = "";
+            let htmlString = ` `;
             array.forEach(element => {
                     htmlString += 
-                    `   <div class="rowContainer>
+                    `   <div class="rowContainer custom-rc">
                           <div class="row">
                             <div class="col">
-                              <form id="deleteGame">         
-                                <button type="submit" onclick="deleteScore();">Delete Score</button>
+                              <form id="deleteGame" onSubmit="window.location.reload()">         
+                                <button type="submit" class="btn btn-primary custom-btn-del" onclick="deleteScore();">Delete Score</button>
                               </form>
                             </div>
                           </div>
@@ -40,7 +38,7 @@ window.onload = function(){
                                 </div>   
                                 <div class="col">       
                                     <p>
-                                      <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${element._id}" aria-expanded="false" aria-controls="collapseExample" id="gameId"value="${element._id}">
+                                      <button class="btn btn-primary custom-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${element._id}" aria-expanded="false" aria-controls="collapseExample" id="gameId"value="${element._id}">
                                         Description
                                       </button>
                                     </p>
@@ -66,16 +64,18 @@ window.onload = function(){
 }
 
 async function deleteScore (){
+  // Only deletes first object in array
   let id  = document.getElementById("gameId").value;
   
   console.log (id);
   
     //deleteGame
       fetch(`https://web2-courseproject-jarno.herokuapp.com/coursedata/${id}`, {
+          mode: 'cors',
           method: "DELETE",
           headers: {
               'Content-Type': 'application/json',
-            
+              'Access-Control-Allow-Origin': '*',
           },
           body: JSON.stringify({
                   _id: id
@@ -87,6 +87,6 @@ async function deleteScore (){
       });
       document.getElementById('deleteGame').addEventListener('submit', (e) => {
       e.preventDefault();
-    });
-
+    }); 
+    alert("Score Deleted");
 }
