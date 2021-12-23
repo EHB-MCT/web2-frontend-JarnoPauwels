@@ -14,7 +14,7 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light ">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">ScoreBoard</a>
+        <a class="navbar-brand" href="#"><img id="navLogo" src="/web2-frontend-JarnoPauwels/img/Untitled-1.png" alt=""></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
           </button>
@@ -46,35 +46,48 @@
         </div>
 
         <div class="container-fluid" id="dataContainer">
-            <!-- <div class="d-flex justify-content-center">
-                <h2>Search for a game!</h2>
-                <div class="rowContainer">
+          <div class="rowContainer custom-rc">
                     <div class="row">
-                        <div class="col" id="gameName">
+                        <div class="col">
                             <h1 id="gameName">${element.name}</h1>
                         </div>
                         <div class="col">
-                            <form id="addGame">         
-                                <button type="submit" onclick="addScore();">Add Score</button>
-                            </form>
+                        <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary custom-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Add Score
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Enter your name and score</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <input id="userName" placeholder="Your Name" type="text">
+                                    <input id="userScore" placeholder="Your Score" type="text">
+                                </div>
+                                <div class="modal-footer" id="addGame">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    
+                                    <button type="submit" id="addGame" class="btn btn-primary custom-btn">Add Score</button>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">    
-                            <img src="${element.image_url}" alt="">
+                            <img id="gameImg" src="${element.image_url}" alt="">
                         </div>  
                         <div class="col">       
-                            <p id="gameDesc">Description: ${element.description}</p>
+                            <p id="gameDesc">${element.description}</p>
                         </div>
                     </div>
-                </div>      
-            </div> -->
-        </div>
-
-        <div class="container-fluid" id="section">
-            <div class="d-flex justify-content-center">
-                <h2>Section</h2>
-            </div>
+                </div>        
         </div>
     </div>
 

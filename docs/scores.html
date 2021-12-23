@@ -10,10 +10,11 @@
     <script src="/web2-frontend-JarnoPauwels/src/scores.js"></script>
     <title>Document</title>
 </head>
+
 <header>
     <nav class="navbar navbar-expand-lg navbar-light ">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">ScoreBoard</a>
+        <a class="navbar-brand" href="#"><img id="navLogo" src="/web2-frontend-JarnoPauwels/img/Untitled-1.png" alt=""></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
           </button>
@@ -38,50 +39,9 @@
 
    <div class="content">
         <div class="container-fluid" id="scoreContainer">
-            <div class="d-flex justify-content-center">
-                <h2>Search for a game!</h2>
-               <div class="rowContainer" id="gameId" value="${element._id}">
-                  <div class="row">
-                    <div class="col">
-                      <form id="deleteGame">         
-                        <button type="submit" onclick="deleteScore();">Delete Score</button>
-                      </form>
-                    </div>
-                  </div>
-                  <div class="row">
-                      <div class="col">
-                          <h1 id="userName">${element.user}</h1>
-                      </div>
-                      <div class="col">
-                          <h1 id="gameName">${element.game}</h1>
-                      </div>
-                  </div>
-                  <div class="row">
-                      <div class="col">    
-                          <p id="">${element.score}</p>
-                      </div>  
-                      <div class="col">       
-                          <p>
-                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                              Description
-                            </button>
-                          </p>
-                            <div class="collapse" id="collapseExample">
-                              <div class="card card-body">
-                                <div class="row">
-                                  <div class="col">
-                                    ${element.desc}
-                                  </div>
-                                  <div class="col">
-                                    <img src="${element.img}" alt="">
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                      </div>
-                  </div>
-              </div>       
-            </div>
+          <div class="d-flex justify-content-center">
+              <h2>No scores</h2>
+          </div>
         </div>
     </div>
 
