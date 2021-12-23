@@ -1,22 +1,11 @@
-header {
-    padding: 1.5em 0 1.5em 0;
-}
-
-.nav-item {
-    font-size: 2em;
-    padding-left: 0.5em;
-}
-
-nav {
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
-}
-
 body {
     margin: 0;
     padding: 0;
 }
 
+/* Center Text on Home */
 .section-index {
+    background-color: white;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -24,9 +13,28 @@ body {
     text-align: center;
 }
 
-#inputContainer {
-    padding: 1.5em 0 2em 0;
+.home-img {
+    width: 30%;
 }
+
+.home-button {
+    padding-top: 1em;
+}
+
+.home-button a {
+    color: black;
+    text-decoration: none;
+}
+
+.home-button a .games-color:hover {
+    color: #F6E3BA;
+    text-decoration: none;
+}
+
+.games-color {
+    font-weight: 600;
+}
+
 
 /* Buttons */
 
@@ -54,6 +62,19 @@ body {
 }
 
 /* Nav */
+header {
+    padding: 1.5em 0 1.5em 0;
+}
+
+.nav-item {
+    font-size: 2em;
+    padding-left: 0.5em;
+}
+
+nav {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+}
+
 .navbar {
     background-color: rgb(255, 255, 255);
 }
@@ -63,10 +84,14 @@ body {
     height: 50%;
 }
 
+/**/
+#inputContainer {
+    padding: 1.5em 0 2em 0;
+}
+
 .container-fluid {
     width: 80%;
 }
-
 
 #dataContainer h2 {
     padding: 1.5em 0 1.5em 0;
