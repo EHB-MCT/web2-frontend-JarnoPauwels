@@ -3,8 +3,8 @@ const path = require('path');
 module.exports = {
     mode: 'development',
     entry: {
-        search: './src/games.js',
-        watchlist: './src/scores.js',
+        games: '../src/games.js',
+        scores: '../src/scores.js',
        
       },
     output: {
