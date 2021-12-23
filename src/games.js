@@ -165,5 +165,5 @@ async function addScore(){
             e.preventDefault();
             addScore();
         });
-        //alert("Score Added");
+        alert("Score Added");
 }
