@@ -11,35 +11,26 @@
     <title>ScoreBoard</title>
 </head>
 <body>
-  <header>
-      <nav class="navbar navbar-expand-lg navbar-light ">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img id="navLogo" src="../img/Untitled-1.png" alt=""></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" href="./games.html">Games</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" href="./scores.html">My Scores</a>
-                  </li>
-                </ul>
-            </div>
-        </div>
-      </nav>
-  </header>
 
+	<header class="header">
+    <a class="logo" href="#"><img id="navLogo" src="../img/logo.png" alt=""></a>
+		<!-- <h1 class="logo"><a href="#">Flexbox</a></h1> -->
+      <ul class="navBar">
+          <li><a href="./games.html">Games</a></li>
+          <li><a href="./scores.html">My Games</a></li>
+          <li><a href="#">Home</a></li>
+      </ul>
+	</header> 
+
+
+  <div class="background-image">
     <div class="section-index">
-      <h1>Welcome to <img class="home-img" src="../img/Untitled-1.png" alt=""></h1>
-      <h3>Keep track of all your scores!</h3>
-      <h3 class="home-button"><a href="./games.html">Go to <span class="games-color">Games</span> or see your <span class="games-color">Scores</span></a></h3>
+      <h2 class="index-title">Welcome to <img class="home-img" src="../img/logo.png" alt=""></h2>
+      <h1 class="index-enter"><a href="./games.html">Enter</a></h1>
+      <h2 class="index-text">Keep track of all your scores!</h2>
+      <!-- <h3 class="home-button"><a href="./games.html">Go to <span class="games-color">Games</span> or see your <span class="games-color">Scores</span></a></h3> -->
     </div>
+  </div>
 
 </body>
 </html>
