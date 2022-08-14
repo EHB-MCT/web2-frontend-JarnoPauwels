@@ -4,12 +4,6 @@ Reference List
 
 Herexamen:
 
-
-https://www.w3schools.com/html/
-https://www.w3schools.com/howto/howto_css_modals.asp
-https://www.w3schools.com/howto/howto_css_searchbar.asp
-https://www.youtube.com/c/MikeDerycke
-
 Course Project:
 Navbar: 
 https://getbootstrap.com/docs/5.0/components/navbar/
