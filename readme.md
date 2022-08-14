@@ -1,8 +1,11 @@
-POST and DELETE only works for first object in array and I don't know how to fix it.
-
 Reference List
 
 Herexamen:
+https://www.w3schools.com/html/
+https://www.w3schools.com/howto/howto_css_modals.asp
+https://www.w3schools.com/howto/howto_css_searchbar.asp
+https://www.youtube.com/c/MikeDerycke
+
 
 Course Project:
 Navbar: 
