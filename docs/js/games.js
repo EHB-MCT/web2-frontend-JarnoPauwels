@@ -1,68 +1,102 @@
+// ID OF BUTTON NEEDS TO BE UNIQUE FOR MODAL AND ADDSCORE
+
 window.onload = function(){
 
     document.getElementById('dataContainer').innerHTML = "";
-    document.getElementById('dataContainer').style.display = "block";
+    // document.getElementById('dataContainer').style.display = "block";
 
     async function displayRandomGames(){
-        const response = await fetch(`https://api.boardgameatlas.com/api/search?name=?&pretty=true&client_id=zKw4L2EcTf`);
+        const response = await fetch(`https://api.boardgameatlas.com/api/search?order_by=rank&ascending=true&client_id=zKw4L2EcTf`);
         const game = await response.json();
         console.log(game.games);
     
         var array = game.games;
         let htmlString = 
             `  
-                <div class="d-flex justify-content-center">
-                    <h2>Recommended Games</h2>
-                </div>
             `;
         array.forEach(element => {
+            //let i = 0;
+            //var infoId = i++;
+            var infoId = "infoBtn" + Math.random().toString(16).slice(2);
+            var modalId = "modalId" + Math.random().toString(16).slice(2);
             htmlString +=
-                `   <div class="rowContainer custom-rc">
-                    <div class="row">
-                        <div class="col">
-                            <h1 id="gameName">${element.name}</h1>
-                        </div>
-                        <div class="col">
-                           <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary custom-btn" data-bs-toggle="modal" data-bs-target="#${element.id}Modal">
-                            Add Score
-                            </button>
+                `        
+            <div class="grid-item">
+                <img class="column-gameImg" src="${element.image_url}" alt="">
+                <div class="grid-icon">
 
-                            <!-- Modal -->
-                            <div class="modal fade" id="${element.id}Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
+                     
+                     <div class="wrapper">
+                       <a class="icon-ref" type="submit" id="addGame" onClick="addScore(), changeIcon(this)">
+                           <i class="plus fa-solid fa-plus"></i>
+                           <i class="check fa-solid fa-check"></i>
+                           <span class="tooltiptext">Add to My Games</span>
+                       </a>
+                       <a class="icon-ref" id="myBtn">
+                           <i class="fa-solid fa-circle-info"></i>
+                           <span class="tooltiptext">Info</span>
+                       </a>
+                     </div>
+                   
+                            
+
+                            <div id="myModal" class="modal">
                                 <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Enter your name and score</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <input id="userName" placeholder="Your Name" type="text">
-                                    <input id="userScore" placeholder="Your Score" type="text">
-                                </div>
-                                <div class="modal-footer" id="addGame">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary custom-btn" onClick="addScore()">Add Score</button>
-                                </div>
+                                  <div class="modal-header">
+                                    <h2 class="modal-title" id="gameName">${element.name}</h2>
+                                    <div class="modal-wrapper">
+                                        <a class="icon-modal-add" type="submit" id="addGame" onClick="addScore()">
+                                            <i class="fa-solid fa-plus"></i>
+                                            <span class="tooltiptext">Add to My Games</span>
+                                        </a>
+                                        <span class="close">&times;</span>
+                                    </div>    
+                                  </div>
+                                  <div class="modal-body">
+                                    <img id="gameImg" src="${element.image_url}" alt="">
+                                  </div>
+                                  <div class="modal-footer">
+                                    <p id="gameDesc">${element.description}</p>
+                                  </div>
                                 </div>
                             </div>
-                            </div>
-                        </div>
                     </div>
-                    <div class="row">
-                        <div class="col">    
-                            <img id="gameImg" src="${element.image_url}" alt="">
-                        </div>  
-                        <div class="col">       
-                            <p id="gameDesc">${element.description}</p>
-                        </div>
-                    </div>
-                </div>        
-            `;
-            document.getElementById('dataContainer').innerHTML = htmlString;    
-            }); 
+                </div> 
+                        
+            ` ;
+            
+                document.getElementById('dataContainer').innerHTML = htmlString; 
+                // script here works on first button
+                var modal = document.getElementById("myModal");
+                //var modal = document.getElementById(modalId);
+                var btn = document.getElementById("myBtn");
+                //var btn = document.getElementById(infoId);
+                var span = document.getElementsByClassName("close")[0];
+                
+                btn.onclick = function() {
+                    console.log(btn);
+                    modal.style.display = "block";
+                }
+                
+                span.onclick = function() {
+                    modal.style.display = "none";
+                }
+                
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            
+            });
+            
         }   
     displayRandomGames()
+
+}
+
+function changeIcon(anchor) {
+  anchor.closest('.wrapper').classList.toggle('active');
 }
 
 async function getGames(){
@@ -82,62 +116,86 @@ async function getGames(){
     let htmlString = "";
     array.forEach(element => {
             htmlString += 
-            `   <div class="rowContainer custom-rc">
-                    <div class="row">
-                        <div class="col">
-                            <h1 id="gameName">${element.name}</h1>
-                        </div>
-                        <div class="col">
-                        <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary custom-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Add Score
-                            </button>
+                 `        
+            <div class="grid-item">
+                <img class="column-gameImg" src="${element.image_url}" alt="">
+                <div class="grid-icon">
 
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
+                     
+                     <div class="wrapper">
+                       <a class="icon-ref" type="submit" id="addGame" onClick="addScore(), changeIcon(this)">
+                           <i class="plus fa-solid fa-plus"></i>
+                           <i class="check fa-solid fa-check"></i>
+                           <span class="tooltiptext">Add to My Games</span>
+                       </a>
+                       <a class="icon-ref" id="myBtn">
+                           <i class="fa-solid fa-circle-info"></i>
+                           <span class="tooltiptext">Info</span>
+                       </a>
+                     </div>
+                   
+                            
+
+                            <div id="myModal" class="modal">
                                 <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Enter your name and score</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <input id="userName" placeholder="Your Name" type="text">
-                                    <input id="userScore" placeholder="Your Score" type="text">
-                                </div>
-                                <div class="modal-footer" id="addGame">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" onClick="addScore();" class="btn btn-primary custom-btn">Add Score</button>
-                                </div>
+                                  <div class="modal-header">
+                                    <h2 class="modal-title" id="gameName">${element.name}</h2>
+                                    <div class="modal-wrapper">
+                                        <a class="icon-modal-add" type="submit" id="addGame" onClick="addScore()">
+                                            <i class="fa-solid fa-plus"></i>
+                                            <span class="tooltiptext">Add to My Games</span>
+                                        </a>
+                                        <span class="close">&times;</span>
+                                    </div>    
+                                  </div>
+                                  <div class="modal-body">
+                                    <img id="gameImg" src="${element.image_url}" alt="">
+                                  </div>
+                                  <div class="modal-footer">
+                                    <p id="gameDesc">${element.description}</p>
+                                  </div>
                                 </div>
                             </div>
-                            </div>
-                        </div>
                     </div>
-                    <div class="row">
-                        <div class="col">    
-                            <img id="gameImg" src="${element.image_url}" alt="">
-                        </div>  
-                        <div class="col">       
-                            <p id="gameDesc">${element.description}</p>
-                        </div>
-                    </div>
-                </div>        
-            `;
-        document.getElementById('dataContainer').innerHTML = htmlString; 
-    });
+                </div> 
+                        
+            ` ;
+            
+                document.getElementById('dataContainer').innerHTML = htmlString; 
+                // script here works on first button
+                var modal = document.getElementById ("myModal");
+                //var modal = document.getElementById(modalId);
+                var btn = document.getElementById ("myBtn");
+                //var btn = document.getElementById(infoId);
+                var span = document.getElementsByClassName("close")[0];
+                
+                btn.onclick = function() {
+                    console.log(btn);
+                    modal.style.display = "block";
+                }
+                
+                span.onclick = function() {
+                    modal.style.display = "none";
+                }
+                
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+        });
 }
 
 async function addScore(){
     // only works for the first object in array, i think i need to put this function in forEach but it doesnt work.
-    let userName = document.getElementById("userName").value;
-    let userScore = document.getElementById("userScore").value;
+    // let userName = document.getElementById("userName").value;
+    // let userScore = document.getElementById("userScore").value;
     let gameName = document.querySelector("#gameName").innerHTML;
     let gameDesc = document.querySelector("#gameDesc").parentElement.innerText;
     let gameImg  = document.getElementById("gameImg").src;
-    console.log(userName, userScore, gameName, gameDesc);
+    console.log(gameName, gameDesc);
     
-        fetch(`https://web2-courseproject-jarno.herokuapp.com/coursedata`, {
+        fetch(`https://web2-courseproject-jarno.herokuapp.com/games`, {
         mode: 'cors',
         method: "POST",
         headers: {
@@ -145,8 +203,8 @@ async function addScore(){
             'Content-Type': 'application/json',
         },
             body: JSON.stringify({
-                    user: userName,
-                    score: userScore,
+                    // user: userName,
+                    // score: userScore,
                     img: gameImg,
                     game: gameName,
                     desc: gameDesc
@@ -161,9 +219,11 @@ async function addScore(){
             console.log(e);
         });
 
-        document.getElementById('addGame').addEventListener('submit', (e) => {
+        document.getElementById("addGame").addEventListener('submit', (e) => {
             e.preventDefault();
             addScore();
+            console.log("game added");
         });
-        alert("Score Added");
+        // alert("Score Added");
 }
+
