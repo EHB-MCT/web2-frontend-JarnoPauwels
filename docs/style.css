@@ -80,7 +80,7 @@ body {
 .background-image {
     height: 87.5vh;
     overflow: hidden;
-    background-image: url("./img/web-landingpage.png");
+    background-image: url("img/web-landingpage.png");
     background-size: cover;
 }
 
